@@ -250,9 +250,9 @@ def show_performance(distortion_name):
 
         correct = 0
         for batch_idx, (data, target) in enumerate(distorted_dataset_loader):
-            data = V(data.cuda(), volatile=True)
+#             data = V(data.cuda(), volatile=True)
 
-            output = net(data)
+            output = net(data.cuda())
 
             pred = output.data.max(1)[1]
             correct += pred.eq(target.cuda()).sum()
