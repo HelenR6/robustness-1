@@ -286,5 +286,5 @@ for distortion_name in distortions:
     print('Distortion: {:15s}  | CE (unnormalized) (%): {:.2f}'.format(distortion_name, 100 * rate))
 
 
-print('mCE (unnormalized by AlexNet errors) (%): {:.2f}'.format(100 * np.mean(error_rates)))
+print('mCE of {} (%): {:.2f}'.format(args.model_name,100 * np.mean(error_rates)))
 
