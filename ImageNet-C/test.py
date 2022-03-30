@@ -12,22 +12,22 @@ import torchvision.transforms as trn
 import torchvision.models as models
 import torch.utils.model_zoo as model_zoo
 import numpy as np
-from resnext_50_32x4d import resnext_50_32x4d
-from resnext_101_32x4d import resnext_101_32x4d
-from resnext_101_64x4d import resnext_101_64x4d
-from densenet_cosine_264_k48 import densenet_cosine_264_k48
-from condensenet_converted import CondenseNet
+# from resnext_50_32x4d import resnext_50_32x4d
+# from resnext_101_32x4d import resnext_101_32x4d
+# from resnext_101_64x4d import resnext_101_64x4d
+# from densenet_cosine_264_k48 import densenet_cosine_264_k48
+# from condensenet_converted import CondenseNet
 from load_model import load_model
 
 parser = argparse.ArgumentParser(description='Evaluates robustness of various nets on ImageNet',
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 # Architecture
-parser.add_argument('--model-name', '-m', type=str,
-                    choices=['alexnet', 'squeezenet1.0', 'squeezenet1.1', 'condensenet4', 'condensenet8',
-                             'vgg11', 'vgg', 'vggbn',
-                             'densenet121', 'densenet169', 'densenet201', 'densenet161', 'densenet264',
-                             'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152',
-                             'resnext50', 'resnext101', 'resnext101_64'])
+parser.add_argument('--model-name', '-m', type=str)
+                    # choices=['alexnet', 'squeezenet1.0', 'squeezenet1.1', 'condensenet4', 'condensenet8',
+                    #          'vgg11', 'vgg', 'vggbn',
+                    #          'densenet121', 'densenet169', 'densenet201', 'densenet161', 'densenet264',
+                    #          'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152',
+                    #          'resnext50', 'resnext101', 'resnext101_64'])
 # Acceleration
 parser.add_argument('--ngpu', type=int, default=1, help='0 = CPU.')
 parser.add_argument('--test_bs', type=int, default=256, help='0 = CPU.')
