@@ -208,10 +208,10 @@ print('Model Loaded')
 mean = [0.485, 0.456, 0.406]
 std = [0.229, 0.224, 0.225]
 
-clean_loader = torch.utils.data.DataLoader(dset.ImageFolder(
-    root="/share/data/vision-greg/ImageNet/clsloc/images/val",
-    transform=trn.Compose([trn.Resize(256), trn.CenterCrop(224), trn.ToTensor(), trn.Normalize(mean, std)])),
-    batch_size=args.test_bs, shuffle=False, num_workers=args.prefetch, pin_memory=True)
+# clean_loader = torch.utils.data.DataLoader(dset.ImageFolder(
+#     root="/share/data/vision-greg/ImageNet/clsloc/images/val",
+#     transform=trn.Compose([trn.Resize(256), trn.CenterCrop(224), trn.ToTensor(), trn.Normalize(mean, std)])),
+#     batch_size=args.test_bs, shuffle=False, num_workers=args.prefetch, pin_memory=True)
 
 
 # /////////////// Further Setup ///////////////
@@ -242,7 +242,7 @@ def show_performance(distortion_name):
 
     for severity in range(1, 6):
         distorted_dataset = dset.ImageFolder(
-            root='/share/data/vision-greg/DistortedImageNet/JPEG/' + distortion_name + '/' + str(severity),
+            root='/content/gdrive/MyDrive/imagenet-c/' + distortion_name + '/' + str(severity),
             transform=trn.Compose([trn.CenterCrop(224), trn.ToTensor(), trn.Normalize(mean, std)]))
 
         distorted_dataset_loader = torch.utils.data.DataLoader(
