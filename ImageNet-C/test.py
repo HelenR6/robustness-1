@@ -30,6 +30,7 @@ parser.add_argument('--model-name', '-m', type=str,
                              'resnext50', 'resnext101', 'resnext101_64'])
 # Acceleration
 parser.add_argument('--ngpu', type=int, default=1, help='0 = CPU.')
+parser.add_argument('--test_bs', type=int, default=256, help='0 = CPU.')
 args = parser.parse_args()
 print(args)
 
