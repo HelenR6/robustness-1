@@ -287,4 +287,5 @@ for distortion_name in distortions:
 
 
 print('mCE of {} (%): {:.2f}'.format(args.model_name,100 * np.mean(error_rates)))
+np.save(f'/content/gdrive/MyDrive/imagenet-c_acc/{args.model_name}_accuracy.npy', 100 * np.mean(error_rates))
 
